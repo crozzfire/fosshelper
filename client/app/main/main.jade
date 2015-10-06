@@ -1,0 +1,45 @@
+div(ng-include='"components/navbar/navbar.html"')
+
+header#banner.hero-unit
+  .container
+    h2 Find exciting Open Source Projects to contribute    
+    p.lead for skills that you rock!
+      div
+        img(src='assets/images/banner.png')
+    div
+      a(href='/login')
+        btn.btn-lg.btn-success Get Started
+
+.container
+  .row
+    .col-md-4
+      .panel.panel-default
+        .panel-heading
+          h3.panel-title Personalized
+        .panel-body Projects are recommended based
+                    | on your skillset and experience.
+                    | This ensures that you contribute 
+                    | in domains that you are best at!
+    .col-md-4
+      .panel.panel-default
+        .panel-heading
+          h3.panel-title Great Codebases
+        .panel-body Since you already know what you doing,
+                    | the code that you write is gonna be
+                    | keep the entire codebase sparkling clean!
+    .col-md-4
+      .panel.panel-default
+        .panel-heading
+          h3.panel-title Career kickstarter
+        .panel-body Contributing to the right open source projects
+                    | is a career kickstarter. Fight on Code Ninja!
+                    | Make the world a better place with free softwares.
+        
+footer.footer
+  .container
+    p
+      | Angular Fullstack v2.1.1
+      = ' | '
+      a(href='https://twitter.com/tyhenkel') @tyhenkel
+      = ' | '
+      a(href='https://github.com/DaftMonk/generator-angular-fullstack/issues?state=open') Issues

@@ -67,7 +67,13 @@ function setTokenCookie(req, res) {
   if (!req.user) return res.status(404).json({ message: 'Something went wrong, please try again.'});
   var token = signToken(req.user._id, req.user.role);
   res.cookie('token', JSON.stringify(token));
-  res.redirect('/');
+
+  //Check if skills are not known
+  if(!req.user.linkedin.skills){
+    res.redirect('/scrape?source=linkedin&publicProfileUrl='+req.user.linkedin.publicProfileUrl+'&email='+req.user.emails[0]);
+  }else {
+    res.redirect('/');
+  }
 }
 
 exports.isAuthenticated = isAuthenticated;

@@ -2,7 +2,6 @@ exports.setup = function (User, config) {
   var passport = require('passport');
   var LinkedInStrategy = require('passport-linkedin').Strategy;
   var  _ = require('lodash');
-  var scraperQueue = require('../../queues/scraperQueue');
 
   passport.use(new LinkedInStrategy({
     consumerKey: config.linkedin.clientID,
@@ -29,10 +28,7 @@ exports.setup = function (User, config) {
           linkedin: profile._json
         });
         user.save(function(err) {
-          if (err) return done(err);
-
-          //Create the scraping job
-          scraperQueue.createJob('linkedin', emails[0], profile._json.publicProfileUrl);
+          if (err) return done(err);          
           done(err, user);
         });
       } else {

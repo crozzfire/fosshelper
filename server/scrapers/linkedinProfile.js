@@ -17,10 +17,11 @@ casper.userAgent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:41.0) Gecko/20
 casper.start();
 
 casper.open(url,headers).then(function() {
-    var elems = this.getElementsInfo('a.endorse-item-name-text');
+
+    var elems = this.getElementsInfo('li.skill a');
 
     for(var i in elems){
-    	skills.push(elems[i]['text']);
+    	skills.push(elems[i]['attributes']['title']);
     }
 
     this.echo(JSON.stringify(skills));

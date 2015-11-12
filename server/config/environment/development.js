@@ -5,7 +5,7 @@
 module.exports = {
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://localhost/fosshelper-dev'
+    uri: 'mongodb://localhost/fosshelper'
   },
 
   seedDB: false

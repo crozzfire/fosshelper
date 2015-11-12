@@ -3,7 +3,7 @@
 angular.module('fosshelperApp', [
   'ngCookies',
   'ngResource',
-  'ngSanitize',
+  'ngSanitize',  
   'ui.router',
   'ui.bootstrap'
 ])

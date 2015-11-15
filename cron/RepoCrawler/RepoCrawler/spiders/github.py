@@ -1,13 +1,17 @@
 # -*- coding: utf-8 -*-
-import scrapy, json, re, html2text, datetime
+import scrapy, json, re, html2text, datetime, os
 
 from RepoCrawler.items import RepocrawlerItem
 
 class GithubSpider(scrapy.Spider):
 	name = "github"
 	allowed_domains = ["github.com","api.github.com"]
-	http_user = "crozzfire"
-	http_pass = "6470e7af836f0a25e5d71d624e5017a74d73b955" #Personal Access Token
+	http_user = os.environ.get("GITHUB_USERNAME")
+	http_pass = os.environ.get("GITHUB_PERSONAL_ACCESS_TOKEN") #Personal Access Token
+
+	if not http_pass or not http_user:
+		print "WARNING: Github username or personal access token not found!"
+		
 	start_urls = (
 		"https://api.github.com/search/repositories?q=nodejs&sort=stars",
 		)

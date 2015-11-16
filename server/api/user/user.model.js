@@ -18,7 +18,9 @@ var UserSchema = new Schema({
   twitter: {},
   google: {},
   github: {},
-  linkedin: {}             
+  linkedin: {},
+  suggestedProjects: {},
+  experience: 0             
 });
 
 // Public profile information

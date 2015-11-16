@@ -6,10 +6,10 @@ angular.module('fosshelperApp')
       id: '@_id'
     },
     {
-      changePassword: {
+      addExperience: {
         method: 'PUT',
         params: {
-          controller:'password'
+          controller:'experience'
         }
       },
       get: {

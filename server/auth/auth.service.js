@@ -70,9 +70,12 @@ function setTokenCookie(req, res) {
 
   //Check if skills are not known
   if(!req.user.linkedin.skills){
+    //Then scrape them first
     res.redirect('/scrape?source=linkedin&publicProfileUrl='+req.user.linkedin.publicProfileUrl+'&email='+req.user.emails[0]);
   }else {
-    res.redirect('/');
+    console.log('.......');
+    //Else goto the dash board
+    res.redirect('/dashboard');
   }
 }
 

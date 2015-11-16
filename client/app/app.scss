@@ -15,11 +15,21 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
     padding: 0.2em 0;
 }
 
+body,html {
+	background-image: url('../assets/images/grey_@2X.png');
+}
+
+#navbar-brand {
+	color: #fff;
+}
+
 // Component styles are injected through grunt
 // injector
 @import 'account/login/login.scss';
 @import 'admin/admin.scss';
+@import 'dashboard/dashboard.scss';
 @import 'main/main.scss';
+@import 'recommendations/recommendations.scss';
 @import 'scrape/scrape.scss';
 @import 'modal/modal.scss';
 // endinjector

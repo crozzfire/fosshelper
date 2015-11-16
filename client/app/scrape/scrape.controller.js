@@ -10,11 +10,10 @@ angular.module('fosshelperApp')
 
     if(source == 'linkedin'){
 	    //Scrape linkedin skills
-	    $http.post('/api/scrape/linkedin',{'email':email,'publicProfileUrl':publicProfileUrl}).success(function(res){
-	    	console.log(res);
+	    $http.post('/api/scrape/linkedin',{'email':email,'publicProfileUrl':publicProfileUrl}).success(function(res){	    	
 	    	if(res == "OK"){
-	    		//All good    		
-	    		$location.path('/');
+	    		//All good lets goto dashboard   		
+	    		$location.path('/dashboard');
 	    	}
 	    }).error(function(){
 	    	$scope.msg = "There was an error doing this :( Please try again.";

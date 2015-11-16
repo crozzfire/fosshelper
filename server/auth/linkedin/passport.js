@@ -7,7 +7,7 @@ exports.setup = function (User, config) {
     consumerKey: config.linkedin.clientID,
     consumerSecret: config.linkedin.clientSecret,
     callbackURL: config.linkedin.callbackURL,
-    profileFields: ['id', 'first-name', 'last-name', 'email-address', 'location', 'summary', 'picture-url', 'public-profile-url']
+    profileFields: ['id', 'first-name', 'last-name', 'email-address', 'location', 'summary', 'picture-urls::(original)', 'public-profile-url']
   },
   function(token, tokenSecret, profile, done) {    
     

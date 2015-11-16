@@ -1,0 +1,55 @@
+div(ng-include='"components/navbar/navbar.html"')
+.container
+	#suggestions.col-xs-12.col-sm-6.col-md-6
+		div(ng-show="{{user.suggestedProjects}}")
+			| Your suggested projects are ...
+		div(ng-hide="{{user.suggestedProjects}}")
+			.panel.panel-info
+				.panel-heading
+					h6 Let us know a bit more about yourself
+				.panel-body
+					form#suggestionsForm(ng-submit="recommend()")					
+						.form-group
+							label Experience level
+							div.radio
+								label
+									input(type="radio",name="experienceLevel",value="1")
+									| New to the coding world
+							div.radio
+								label
+									input(type="radio",name="experienceLevel",value="2")
+									| Have been developing for a while now
+							div.radio
+								label
+									input(type="radio",name="experienceLevel",value="3")
+									| Super awesome code ninja!	
+						.form-group
+							div.text-center
+								button.btn.btn-lg.btn-success(type="submit")	Find me awesome projects!					
+
+	#about.col-xs-12.col-sm-6.col-md-6
+		.well.well-sm
+			.row
+				.col-sm-6.col-md-4
+					img(src="{{user.linkedin.pictureUrl}}",width="100%").img-rounded.img-responsive
+				.col-sm-6.col-md-8
+					p
+						h4 {{user.name}}
+						small
+							i.glyphicon.glyphicon-map-marker                        						
+							cite(title="{{user.linkedin.location.name}}") &nbsp;&nbsp;&nbsp; {{user.linkedin.location.name}}			
+						br
+						i.glyphicon.glyphicon-envelope &nbsp;{{user.emails[0]}} 
+						br
+						i.glyphicon.glyphicon-globe 
+							a(href="{{user.linkedin.publicProfileUrl}}") &nbsp;
+								span.label.label-default {{user.linkedin.publicProfileUrl}}
+			hr					
+			.row												
+			#bio
+				strong About:	
+				p {{user.linkedin.summary}}													
+			#skills
+				strong Skills: &nbsp;
+				p 
+					span.label.label-warning(ng-repeat="skill in user.linkedin.skills") {{ skill }}								

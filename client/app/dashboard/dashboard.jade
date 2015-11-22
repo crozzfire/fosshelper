@@ -1,31 +1,28 @@
 div(ng-include='"components/navbar/navbar.html"')
 .container
-	#suggestions.col-xs-12.col-sm-6.col-md-6
-		div(ng-show="{{user.suggestedProjects}}")
-			| Your suggested projects are ...
-		div(ng-hide="{{user.suggestedProjects}}")
-			.panel.panel-info
-				.panel-heading
-					h6 Let us know a bit more about yourself
-				.panel-body
-					form#suggestionsForm(ng-submit="recommend()")					
-						.form-group
-							label Experience level
-							div.radio
-								label
-									input(type="radio",name="experienceLevel",value="1")
-									| New to the coding world
-							div.radio
-								label
-									input(type="radio",name="experienceLevel",value="2")
-									| Have been developing for a while now
-							div.radio
-								label
-									input(type="radio",name="experienceLevel",value="3")
-									| Super awesome code ninja!	
-						.form-group
-							div.text-center
-								button.btn.btn-lg.btn-success(type="submit")	Find me awesome projects!					
+	.col-xs-12.col-sm-6.col-md-6
+		.panel.panel-info
+			.panel-heading
+				h6 Let us know a bit more about yourself
+			.panel-body
+				form#suggestionsForm(ng-submit="recommend()")					
+					.form-group
+						label Experience level
+						div.radio
+							label
+								input(type="radio",ng-model="experienceLevel",value="1")
+								| New to the coding world
+						div.radio
+							label
+								input(type="radio",ng-model="experienceLevel",value="2")
+								| Have been developing for a while now
+						div.radio
+							label
+								input(type="radio",ng-model="experienceLevel",value="3")
+								| Super awesome code ninja!	
+					.form-group
+						div.text-center
+							button.btn.btn-lg.btn-success(type="submit")	Find me awesome projects!					
 
 	#about.col-xs-12.col-sm-6.col-md-6
 		.well.well-sm

@@ -1,2 +1,41 @@
-.col-md-12
-    | This is the recommendations view.
+div(ng-include='"components/navbar/navbar.html"')
+.container
+	.col-xs-12.col-sm-6.col-md-12.col-lg-12
+		.panel.panel-info
+			.panel-heading
+				h6 Recommendations
+			.panel-body
+				article.search-result.row(ng-repeat="recommendation in recommendations")
+					.col-xs-12.col-sm-12.col-md-2.col-lg-2
+						a(title="avatar" href="#")
+							img.thumbnail(src="{{recommendation.avatar}}" )
+					.col-xs-12.col-sm-12.col-md-2.col-lg-2
+						ul.meta-search
+							li
+								i.glyphicon.glyphicon-calendar 
+								span {{recommendation.lastUpdated}}
+							li
+								i.glyphicon.glyphicon-time
+								span {{recommendation.timeUpdated}}
+							li
+								i.glyphicon.glyphicon-cutlery
+								span {{recommendation.forks}}
+								i
+								i.glyphicon.glyphicon-eye-open
+								span {{recommendation.watchers}}
+								i
+								i.glyphicon.glyphicon-exclamation-sign
+								span {{recommendation.issues}}
+							li
+								i.glyphicon.glyphicon-tags
+								span {{recommendation.lang}}
+					.col-xs-12.col-sm-12.col-md-7.col-lg-7.excerpet
+						h3
+							a(href="{{recommendation.url}}") {{recommendation.name}}
+						p {{recommendation.description}}
+							
+								
+
+
+
+				

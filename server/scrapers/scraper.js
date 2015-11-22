@@ -8,15 +8,21 @@ var scraper = function (req,res){
 	var source = req.params.source;
 	var exec = require('child_process').exec,
     child;
-
+    
     if(source == 'linkedin'){
 
 		var email = req.body.email;
 		var url = req.body.publicProfileUrl;
 	
 	    var command = 'casperjs '+ __dirname+'/linkedinProfile.js '+ url +' --cookies-file=cookies.txt --ssl-protocol=any';
-		child = exec(command,
+		  child = exec(command,
   		function (error, skillsJSON, stderr) {
+        console.log(skillsJSON)
+        skillsJSON = skillsJSON.split("\n")
+        if (skillsJSON.length > 1)
+          skillsJSON = skillsJSON[1]
+        else
+          skillsJSON = skillsJSON[0]
 
   			if (error !== null) {
   				console.log(error);

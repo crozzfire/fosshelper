@@ -23,6 +23,14 @@ var template_query = {
 		}
 	},
 	size : 50,
+	highlight : {
+        fields : {
+            "description" : {},
+            "name" : {},
+            "language" : {},
+            "readme" : {}
+        }
+    },
 	sort: { 
 		"updated_at": 
 			{ "order": "desc" }

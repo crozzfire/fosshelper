@@ -37,7 +37,7 @@ exports.recommend = function(req,res) {
   }
 
   var query = JSON.stringify(ex.template_query);
-  
+
   query = query.
             replace('{{forks}}',forks).
             replace('{{watchers}}',watchers).
@@ -56,7 +56,8 @@ exports.recommend = function(req,res) {
     var recommendations = []
     console.log(typeof(hits))    
     hits.forEach(function(obj){
-      obj = obj['_source']
+      var highlights = obj['highlight'];
+      obj = obj['_source'];
       var name = obj['name'];
       var url = obj['html_url'];
       var lang = obj['language'];
@@ -77,7 +78,20 @@ exports.recommend = function(req,res) {
         timeUpdated = "" + dateObj.getUTCHours() + ":" + dateObj.getUTCMinutes() + ":" + dateObj.getUTCSeconds();
       }
       
-      var avatar = obj['owner']['avatar_url']
+      var avatar = obj['owner']['avatar_url'];
+
+      var matchedSkills = [];
+      for ( var key in highlights ){
+        for ( var field in highlights[key] ){
+          var matchedString = highlights[key][field];
+          var skill = matchedString.match(new RegExp("<em>" + "(.*)" + "</em>"))[1].
+                      replace('"','').
+                      toLowerCase();
+          if (matchedSkills.indexOf(skill) == -1)
+            matchedSkills.push(skill);
+        }
+
+      }
 
       var recommend = {
         'name' : name,
@@ -89,7 +103,8 @@ exports.recommend = function(req,res) {
         'watchers' : watchers,
         'lastUpdated' : lastUpdated,
         'timeUpdated' : timeUpdated,
-        'avatar' : avatar
+        'avatar' : avatar,
+        'matchedSkills' : matchedSkills.join(",")
       };
       recommendations.push(recommend);
     })

@@ -7,33 +7,33 @@ div(ng-include='"components/navbar/navbar.html"')
 			.panel-body
 				article.search-result.row(ng-repeat="recommendation in recommendations")
 					.col-xs-12.col-sm-12.col-md-2.col-lg-2
-						a(title="avatar" href="#")
+						a(title="owner's avatar" href="#")
 							img.thumbnail(src="{{recommendation.avatar}}" )
 					.col-xs-12.col-sm-12.col-md-2.col-lg-2
 						ul.meta-search
 							li
-								i.glyphicon.glyphicon-calendar 
+								i.glyphicon.glyphicon-calendar(title="Last Updated Date") 
 								span {{recommendation.lastUpdated}}
 							li
-								i.glyphicon.glyphicon-time
+								i.glyphicon.glyphicon-time(title="Last Updated Time")
 								span {{recommendation.timeUpdated}}
 							li
-								i.glyphicon.glyphicon-cutlery
+								i.glyphicon.glyphicon-cutlery(title="Forks")
 								span {{recommendation.forks}}
 								i
-								i.glyphicon.glyphicon-eye-open
+								i.glyphicon.glyphicon-eye-open(title="Watchers")
 								span {{recommendation.watchers}}
 								i
-								i.glyphicon.glyphicon-exclamation-sign
+								i.glyphicon.glyphicon-exclamation-sign(title="Open Issues")
 								span {{recommendation.issues}}
 							li
-								i.glyphicon.glyphicon-tags
+								i.glyphicon.glyphicon-tags(title="Language")
 								span {{recommendation.lang}}
 					.col-xs-12.col-sm-12.col-md-7.col-lg-7.excerpet
 						h3
 							a(href="{{recommendation.url}}") {{recommendation.name}}
 						p {{recommendation.description}}
-						i.glyphicon.glyphicon-tags  {{recommendation.matchedSkills}}
+						i.glyphicon.glyphicon-tags(title="Matched Skills")  {{recommendation.matchedSkills}}
 							
 								
 

@@ -25,7 +25,7 @@ div(ng-include='"components/navbar/navbar.html"')
 						label Select your top 5 skills			
 						div.btn-group(data-toggle="buttons")
 							#selectSkills(ng-repeat="skill in user.linkedin.skills")
-								label.btn.btn-xs.btn-info
+								label.btn.btn-xs.btn-primary
 									input(name="{{ skill }}",type="checkbox",ng-model="data.topSkills[skill]",ng-checked="data.topSkills[skill]",value="{{ skill }}" )
 									| &nbsp;{{ skill }}													
 						br

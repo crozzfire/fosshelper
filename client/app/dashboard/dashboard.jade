@@ -10,16 +10,30 @@ div(ng-include='"components/navbar/navbar.html"')
 						label Experience level
 						div.radio
 							label
-								input(type="radio",ng-model="experienceLevel",value="1")
+								input(type="radio",ng-model="data.experienceLevel",value="1")
 								| New to the coding world
 						div.radio
 							label
-								input(type="radio",ng-model="experienceLevel",value="2")
+								input(type="radio",ng-model="data.experienceLevel",value="2")
 								| Have been developing for a while now
 						div.radio
 							label
-								input(type="radio",ng-model="experienceLevel",value="3")
+								input(type="radio",ng-model="data.experienceLevel",value="3")
 								| Super awesome code ninja!	
+					hr			
+					.form-group
+						label Select your top 5 skills			
+						div.btn-group(data-toggle="buttons")
+							#selectSkills(ng-repeat="skill in user.linkedin.skills")
+								label.btn.btn-xs.btn-info
+									input(name="{{ skill }}",type="checkbox",ng-model="data.topSkills[skill]",ng-checked="data.topSkills[skill]",value="{{ skill }}" )
+									| &nbsp;{{ skill }}													
+						br
+						div.input-group
+							input.form-control(type="text",placeholder="Add Skill",name="addSkill",ng-model="data.newSkill")
+							span.input-group-btn
+								button.btn.btn-default(type="button",ng-click="addSkill($event)")
+									b +		
 					.form-group
 						div.text-center
 							button.btn.btn-lg.btn-success(type="submit")	Find me awesome projects!					
@@ -49,4 +63,4 @@ div(ng-include='"components/navbar/navbar.html"')
 			#skills
 				strong Skills: &nbsp;
 				p 
-					span.label.label-warning(ng-repeat="skill in user.linkedin.skills") {{ skill }}								
+					span.label.label-default(ng-repeat="skill in user.linkedin.skills") {{ skill }}								

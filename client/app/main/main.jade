@@ -7,8 +7,9 @@ header#banner.hero-unit
       div
         img(src='assets/images/banner.png')
     div
-      a(href='/login')
-        btn.btn-lg.btn-success Get Started
+      a.btn.btn-lg.btn-linkedin(href='', ng-click='loginOauth("linkedin")')
+          i.fa.fa-linkedin
+          |  Connect with LinkedIn
 
 .container
   .row

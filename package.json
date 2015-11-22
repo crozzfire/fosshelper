@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "connect-livereload": "~0.4.0",
+    "elasticsearch": "^9.0.2",
     "grunt": "~0.4.4",
     "grunt-angular-templates": "^0.5.4",
     "grunt-autoprefixer": "~0.7.2",

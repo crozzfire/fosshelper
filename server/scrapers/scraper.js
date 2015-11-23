@@ -17,12 +17,8 @@ var scraper = function (req,res){
 	    var command = 'casperjs '+ __dirname+'/linkedinProfile.js '+ url +' --cookies-file=cookies.txt --ssl-protocol=any';
 		  child = exec(command,
   		function (error, skillsJSON, stderr) {
-        console.log(skillsJSON)
-        skillsJSON = skillsJSON.split("\n")
-        if (skillsJSON.length > 1)
-          skillsJSON = skillsJSON[1]
-        else
-          skillsJSON = skillsJSON[0]
+        
+        console.log('Skills parsed',skillsJSON);
 
   			if (error !== null) {
   				console.log(error);
@@ -38,9 +34,11 @@ var scraper = function (req,res){
 
     			user.linkedin.skills = skills;	    			
     			user.markModified('linkedin');
-    			user.save();
-
-    			res.status(200).send("OK");
+    			user.save(function(err){          
+            if (err) res.status(500).send("Error while fetching skills from LinkedIn");
+            res.status(200).send("OK");
+          });
+    			
     		});		    		
 		});	
 	}

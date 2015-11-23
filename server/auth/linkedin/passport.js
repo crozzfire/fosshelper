@@ -20,12 +20,14 @@ exports.setup = function (User, config) {
         return done(err);
       }
       if (!user) {
+        var pictureUrl = profile._json['pictureUrls']['values'][0] || '';
         user = new User({
           name: profile.displayName,
           role: 'user',
           providers: ['linkedin'],
           emails: emails,
-          linkedin: profile._json
+          linkedin: profile._json,
+          pictureUrl: pictureUrl
         });
         user.save(function(err) {
           if (err) return done(err);          

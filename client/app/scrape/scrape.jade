@@ -1,6 +1,7 @@
 div(ng-include='"components/navbar/navbar.html"')
 .container
 	.row
-		.col-md-12 .text-center
-			div
-				p {{msg}}
+		#scraping.col-md-12.text-center
+			div.dots-loader			
+			hr
+			div.h4 {{msg}}

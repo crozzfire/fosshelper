@@ -5,6 +5,8 @@ div(ng-include='"components/navbar/navbar.html"')
 			.panel-heading
 				h6 Recommendations
 			.panel-body
+				.text-center					
+					.ng-hide(ng-hide="recommendations",style="margin-top: 100px; margin-bottom:100px").dots-loader
 				article.search-result.row(ng-repeat="recommendation in recommendations")
 					.col-xs-12.col-sm-12.col-md-2.col-lg-2
 						a(title="owner's avatar" href="#")

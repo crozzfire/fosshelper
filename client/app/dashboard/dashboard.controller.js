@@ -1,5 +1,6 @@
 'use strict';
 
+
 angular.module('fosshelperApp')
   .controller('DashboardCtrl', function ($scope, Auth, User, $location, Upload) {
     $scope.user = Auth.getCurrentUser();
@@ -37,8 +38,11 @@ angular.module('fosshelperApp')
                 data: {file: resume}
             });
 
-            resume.upload.then(function (response) {                
-            	console.log(response.data);
+            resume.upload.then(function (response) {
+                
+
+                $scope.user.linkedin.skills = _.union($scope.user.linkedin.skills,response.data);
+                console.log($scope.user.linkedin.skills);
                 // response is response.data;                
                 // Push to $scope.user.linkedin.skills for now
             }, function (response) {

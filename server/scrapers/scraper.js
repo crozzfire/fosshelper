@@ -18,8 +18,6 @@ var scraper = function (req,res){
     child = exec(command,
       function (error, skillsJSON, stderr) {
 
-        console.log('Skills parsed',skillsJSON);
-
         if (error !== null) {
           console.log(error);
           res.status(500).send("Error while fetching skills from LinkedIn");
@@ -41,6 +39,9 @@ var scraper = function (req,res){
 
       });		    		
     });	
+  } else if(source == 'resume'){
+    var ResumeCtrl = require('./resume.controller');
+    ResumeCtrl.upload(req,res);
   }
 }
 

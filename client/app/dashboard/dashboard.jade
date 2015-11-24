@@ -27,13 +27,17 @@ div(ng-include='"components/navbar/navbar.html"')
 							#selectSkills(ng-repeat="skill in user.linkedin.skills")
 								label.btn.btn-xs.btn-primary
 									input(name="{{ skill }}",type="checkbox",ng-model="data.topSkills[skill]",ng-checked="data.topSkills[skill]",value="{{ skill }}" )
-									| &nbsp;{{ skill }}													
-						br
-						div.input-group
+									| &nbsp;{{ skill }}																			
+					.form-group
+						div.input-group.col-md-11							
 							input.form-control(type="text",placeholder="Add Skill",name="addSkill",ng-model="data.newSkill")
 							span.input-group-btn
 								button.btn.btn-default(type="button",ng-click="addSkill($event)")
-									b +		
+									b +			
+							.col-md-1
+								button.btn.btn-default(accept=".pdf",ngf-select="uploadResume($file)") Upload Resume
+							div {{resumeUploadError}}
+
 					.form-group
 						div.text-center
 							button.btn.btn-lg.btn-success(type="submit")	Find me awesome projects!					

@@ -5,7 +5,8 @@ angular.module('fosshelperApp', [
   'ngResource',
   'ngSanitize',  
   'ui.router',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'ngFileUpload'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider

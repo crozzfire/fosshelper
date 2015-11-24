@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('fosshelperApp')
-  .controller('DashboardCtrl', function ($scope, Auth, User,$location) {
+  .controller('DashboardCtrl', function ($scope, Auth, User, $location, Upload) {
     $scope.user = Auth.getCurrentUser();
     $scope.data = {'topSkills':{}};
     $scope.experience = "";
@@ -24,6 +24,29 @@ angular.module('fosshelperApp')
     		$scope.user.linkedin.skills.push(newSkill);
     	}
     	$event.preventDefault();
+    }
+
+    $scope.uploadResume = function(resume){
+    	$scope.resume = resume;
+    	var uploadEndpoint = "/api/scrape/resume"; //The endpoint is valid. Just handle it in scrapers/scraper.js
+
+        if (resume) {
+        	console.log('Uploading: ',resume);
+            resume.upload = Upload.upload({
+                url: uploadEndpoint,
+                data: {file: resume}
+            });
+
+            resume.upload.then(function (response) {                
+            	console.log(response.data);
+                // response is response.data;                
+                // Push to $scope.user.linkedin.skills for now
+            }, function (response) {
+            	console.log(response.data);
+                if (response.status > 0)
+                    $scope.resumeUploadError = response.status + ': ' + response.data;
+            });
+        }   
     }
 
   });

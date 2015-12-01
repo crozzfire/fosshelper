@@ -26,16 +26,20 @@ div(ng-include='"components/navbar/navbar.html"')
 								i.glyphicon.glyphicon-eye-open(title="Watchers")
 								span {{recommendation.watchers}}
 								i
-								i.glyphicon.glyphicon-exclamation-sign(title="Open Issues")
+								i.glyphicon.glyphicon-info-sign(title="Open Issues")
 								span {{recommendation.issues}}
 							li
 								i.glyphicon.glyphicon-tags(title="Language")
 								span {{recommendation.lang}}
-					.col-xs-12.col-sm-12.col-md-7.col-lg-7.excerpet
+					.col-xs-12.col-sm-12.col-md-7.col-lg-7
 						h3
 							a(href="{{recommendation.url}}") {{recommendation.name}}
 						p {{recommendation.description}}
-						i.glyphicon.glyphicon-tags(title="Matched Skills")  {{recommendation.matchedSkills}}
+						i.glyphicon.glyphicon-bookmark(title="Matched Skills")  
+						span {{recommendation.matchedSkills}}
+						i.glyphicon.glyphicon-link(title="Source") 
+						span {{recommendation.source}}
+							
 							
 								
 

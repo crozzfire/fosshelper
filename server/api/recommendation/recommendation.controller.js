@@ -79,6 +79,7 @@ exports.recommend = function(req,res) {
       }
       
       var avatar = obj['owner']['avatar_url'];
+      var source = obj['source']
 
       var matchedSkills = [];
       for ( var key in highlights ){
@@ -104,6 +105,7 @@ exports.recommend = function(req,res) {
         'lastUpdated' : lastUpdated,
         'timeUpdated' : timeUpdated,
         'avatar' : avatar,
+        'source' : source,
         'matchedSkills' : matchedSkills.join(",")
       };
       recommendations.push(recommend);

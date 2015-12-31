@@ -9,12 +9,17 @@ var multiparty = require('multiparty');
 exports.upload = function(req,res){
 
 	var form = new multiparty.Form();	
-    form.parse(req, function(err, fields, files) {
+      form.parse(req, function(err, fields, files) {
       
       var filePath = files['file'][0].path;
       
 
       	textract.fromFileWithPath(filePath, function( error, text ) {
+                  if(error){
+                        console.log(error);
+                        res.status(500).send('Error while parsing');
+                  }
+                  
       		var textChunks = text.split(' ');
       		var skillsFound = [];
       		textChunks.forEach(function(obj){

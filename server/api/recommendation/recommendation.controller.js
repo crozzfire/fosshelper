@@ -3,7 +3,7 @@
 var _ = require('lodash');
 var Recommendation = require('./recommendation.model');
 var User = require('../user/user.model')
-var ex = require('../../../example_query')
+var template_query = require('template_query')
 var elasticsearch = require('elasticsearch');
 var client = elasticsearch.Client({
   host: 'localhost:9200'  
@@ -36,7 +36,7 @@ exports.recommend = function(req,res) {
     issues = 5;
   }
 
-  var query = JSON.stringify(ex.template_query);
+  var query = JSON.stringify(template_query);
 
   query = query.
             replace('{{forks}}',forks).

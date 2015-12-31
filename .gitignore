@@ -10,3 +10,5 @@ npm-debug.log
 .bower-cache
 .bower-registry
 cookies.txt
+oplog.timestamp
+mongo-connector.log

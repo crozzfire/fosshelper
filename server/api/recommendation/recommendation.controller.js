@@ -3,7 +3,7 @@
 var _ = require('lodash');
 var Recommendation = require('./recommendation.model');
 var User = require('../user/user.model')
-var template_query = require('template_query')
+var template_query = require('./template_query.js')
 var elasticsearch = require('elasticsearch');
 var client = elasticsearch.Client({
   host: 'localhost:9200'  

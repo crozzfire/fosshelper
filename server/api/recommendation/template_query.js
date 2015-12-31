@@ -36,4 +36,4 @@ var template_query = {
 			{ "order": "desc" }
 		}
 }
-exports.template_query=template_query
+module.exports.template_query=template_query

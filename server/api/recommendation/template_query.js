@@ -1,4 +1,4 @@
-var template_query = {
+exports.query = {
 	query:{
   		filtered: {
 			query: {
@@ -36,4 +36,3 @@ var template_query = {
 			{ "order": "desc" }
 		}
 }
-module.exports.template_query=template_query

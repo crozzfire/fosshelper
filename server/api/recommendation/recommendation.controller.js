@@ -10,7 +10,6 @@ var client = elasticsearch.Client({
 });
 
 
-
 // Get a single recommendation
 exports.show = function(req, res) {
   
@@ -35,8 +34,7 @@ exports.recommend = function(req,res) {
     watchers = 100;
     issues = 5;
   }
-
-  var query = JSON.stringify(template_query);
+  var query = JSON.stringify(template_query.query);
 
   query = query.
             replace('{{forks}}',forks).

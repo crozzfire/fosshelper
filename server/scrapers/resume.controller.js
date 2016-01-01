@@ -1,7 +1,7 @@
 'use strict';
 
 var textract = require('textract');
-var skills = require('../../skills');
+var skills = require('../components/skills.js');
 var all_skills = skills.all_skills;
 var multiparty = require('multiparty');
 

@@ -14,6 +14,17 @@ class GithubSpider(scrapy.Spider):
 		
 	start_urls = (
 		"https://api.github.com/search/repositories?q=nodejs&sort=stars",
+		"https://api.github.com/search/repositories?q=javascript&sort=stars",
+		"https://api.github.com/search/repositories?q=java&sort=stars",
+		"https://api.github.com/search/repositories?q=c++&sort=stars",
+		"https://api.github.com/search/repositories?q=c&sort=stars",
+		"https://api.github.com/search/repositories?q=android&sort=stars",
+		"https://api.github.com/search/repositories?q=sql&sort=stars",
+		"https://api.github.com/search/repositories?q=.net&sort=stars",
+		"https://api.github.com/search/repositories?q=linux&sort=stars",
+		"https://api.github.com/search/repositories?q=database&sort=stars",
+		"https://api.github.com/search/repositories?q=hadoop&sort=stars",
+		"https://api.github.com/search/repositories?q=audio&sort=stars",
 		)
 
 	def parse(self, response):
